@@ -1,29 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-    <div class="form-container">
-        <h2>Signup</h2>
-        <% if (alert) { %>
-            <div class="alert <%= alertType %>">
-                <%= alert %>
+
+
+<!-- signup.ejs -->
+<%- include('./partials/header', { title: 'Signup' }); %> <!-- Include the header partial with a title variable -->
+    <div class="form-container">                          <!-- Container for the form elements -->
+        <h2>Signup</h2>                                   <!-- Heading for the signup form -->
+        <% if (alert) { %>                                 <!-- Conditional statement to check if there is an alert message -->
+            <div class="alert <%= alertType %>">           <!-- Div for displaying the alert message, with dynamic alert type class -->
+                <%= alert %>                               <!-- Display the alert message -->
             </div>
-        <% } %>
-        <form action="/signup" method="POST">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Username" required>
+        <% } %>                                            <!-- End of the conditional statement -->
+        <form action="/signup" method="POST">              <!-- Signup form, submits data to the /signup route using POST method -->
+            <div class="form-group">                       <!-- Grouping for the username input -->
+                <label for="username">Username:</label>    <!-- Label for the username input field -->
+                <input type="text" id="username" name="username" placeholder="Username" required> <!-- Input field for the username -->
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+            <div class="form-group">                       <!-- Grouping for the password input -->
+                <label for="password">Password:</label>    <!-- Label for the password input field -->
+                <input type="password" id="password" name="password" placeholder="Password" required> <!-- Input field for the password -->
             </div>
-            <button type="submit" class="submit-btn">Sign Up</button>
+            <button type="submit" class="submit-btn">Sign Up</button> <!-- Submit button for the form -->
         </form>
     </div>
 </body>

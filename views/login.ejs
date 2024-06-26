@@ -1,31 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-    <div class="form-container">
-        <h2>Login</h2>
-        <% if (alert) { %>
-            <div class="alert <%= alertType %>">
-                <%= alert %>
+<!-- login.ejs -->
+<%- include('./partials/header', { title: 'Login' }); %> <!-- Include the header partial with a dynamic title -->
+    <div class="form-container">                  <!-- Container for the form elements -->
+        <h2>Login</h2>                            <!-- Heading for the login form -->
+
+        <% if (alert) { %>                        <!-- Server-side conditional check for an alert message -->
+            <div class="alert <%= alertType %>">  <!-- Displaying the alert message with dynamic class for styling based on alertType -->
+                <%= alert %>                      <!-- The actual alert message content -->
             </div>
         <% } %>
-        <form action="/login" method="post">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Username" required autocomplete="off">
+
+        <form action="/login" method="post">      <!-- Form that posts to the /login route for handling login -->
+            <div class="form-group">              <!-- Form group for the username field -->
+                <label for="username">Username:</label>  <!-- Label for the username input field -->
+                <input type="text" id="username" name="username" placeholder="Username" required autocomplete="off">  <!-- Input field for username -->
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+            <div class="form-group">              <!-- Form group for the password field -->
+                <label for="password">Password:</label>  <!-- Label for the password input field -->
+                <input type="password" id="password" name="password" placeholder="Password" required>  <!-- Input field for password -->
             </div>
-            <button type="submit" class="submit-btn">Login</button>
+            <button type="submit" class="submit-btn">Login</button>  <!-- Submit button for the form -->
         </form>
-        <p>Don't have an account? <a href="./signup">Signup</a></p>
+
+        <p>Don't have an account? <a href="./signup">Signup</a></p>  <!-- Link to the signup page for users without an account -->
     </div>
 </body>
 </html>
