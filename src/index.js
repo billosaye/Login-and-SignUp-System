@@ -70,7 +70,7 @@ app.post("/login", async (req, res) => {          // Route handler for processin
     }
 });
 
-const port = 5000;                                // Defining the port number
+const port = 7000;                                // Defining the port number
 app.listen(port, () => {                          // Starting the server and listening on the specified port
     console.log(`Server listening on port ${port}`);
 });
