@@ -9,10 +9,12 @@ const app = express(); // Create an Express application instance
 app.use(express.json());                          // Middleware to parse incoming JSON requests
 app.use(express.static("public"));                // Middleware to serve static files from the 'public' directory
 app.use(express.urlencoded({ extended: false })); // Middleware to parse URL-encoded data
+
+
 app.set("view engine", "ejs");                    // Setting the view engine to EJS (Embedded JavaScript)
 
 
-//Routes
+//Routes for rendering ejs files
 app.get("/", (req, res) => {                      // Route handler for the root URL
     res.render("login", { alert: null });         // Renders the login page with no alert
 });
@@ -20,7 +22,7 @@ app.get("/signup", (req, res) => {                // Route handler for the signu
     res.render("signup", { alert: null });        // Renders the signup page with no alert
 });  
 
-
+//Routes for API endpoints
 app.post("/signup", async (req, res) => {         // Route handler for processing signup form submissions
     const data = {                                // Extract username and password from the request body
         name: req.body.username,
