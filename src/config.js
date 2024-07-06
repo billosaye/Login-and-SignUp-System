@@ -12,7 +12,7 @@ connect.then(() => {                                          // If the connecti
     console.error("Database connection error:", error);       // Log the error message to the console
 });
 
-// Create Schema for user logins
+// Create Schema for users logins
 const Loginschema = new mongoose.Schema({                     // Defining a new schema for login
     name: {                                                   // Defining the 'name' field
         type: String,                                         // 'name' is of type String
@@ -20,7 +20,7 @@ const Loginschema = new mongoose.Schema({                     // Defining a new 
         unique: true                                          // 'name' must be unique
     },
     password: {                                               // Defining the 'password' field
-        type: String,                                         // 'password' is of type String
+        type: String,                                         // 'password' is of type String -
         required: true                                        // 'password' is a required field
     }
 });
